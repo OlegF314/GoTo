@@ -41,7 +41,7 @@ def align(s, t):
         check(prevs)
         check(way)
         print(i, j, prevs)
-        if not prevs[i][j] + 2 :
+        if matrix[i][j] == 0:
             way.append([i, j])
             endi = i
             endj = j
@@ -58,8 +58,9 @@ def align(s, t):
             way.append([i - 1, j - 1])
             i -= 1
             j -= 1
-    print(list(range(len(s))))
-    print([i] + matrix[i])
+    print(list(range(-1, len(s) + 1)))
+    for i in range(len(t) + 1):
+        print([i] + matrix[i])
     check(way)
 #    for i in range(1, len(way) - 1):
 #        if way[i][0] == way[i + 1][0]:
@@ -73,7 +74,7 @@ def align(s, t):
     print(s[endj:maxj - 1])
     print(t[endi:maxi - 1])
 
-#with open('file:///home/xenx/Downloads/small.fastq') as f:
+#with open('/home/xenx/Downloads/small.fastq') as f:
 #    first = True
 #    ref = ''
 #    ref_name = ''
@@ -84,4 +85,4 @@ def align(s, t):
 #            continue
 #        ref += line.strip()
 #        print(line)
-align('GCCCCCCCCAAAACCTT', 'AGCAAAACCTTTTTTTTTT')
+align('TTTAAACTTT', 'AGCAAAACCTTTTTTTTTT')
