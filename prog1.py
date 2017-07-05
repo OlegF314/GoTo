@@ -67,3 +67,30 @@ def align(s, t):
 
 
 align('GCCCCCCCCAAAACCTT', 'AGCAAAACCTTTTTTTTTT')
+
+with open('/home/xenx/Downloads/small_ref.fa') as f:
+    first = True
+    ref = ''
+    ref_name = ''
+   for line in f:
+        if first:
+            ref_name = line.strip()
+            first = False
+            continue
+       ref += line.strip()
+reads = []
+with open('/home/xenx/Downloads/small.fastq') as f:
+    string_mod = 1
+    read_name = ''
+    current_read = ''
+    quality = ''
+    for line in f:
+        if string_mod == 1:
+            read_name = line.strip()
+        elif string_mod == 2:
+            current_read = line.strip()
+        elif string_mod == 0:
+            quality = line.strip()
+        coordinate = align(current_read, ref)
+        string_mod = (string_mod + 1) % 4
+        print(read_name, ref_name, coordinate, current_read, quality, sep='\t')
