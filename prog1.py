@@ -4,9 +4,9 @@ def score(x, y):
     return -1
 
 
-def check(table):
-    for m in table:
-        print(' '.join(map(str, m)))
+#def check(table):
+#    for m in table:
+#        print(' '.join(map(str, m)))
 
 
 def align(s, t):
@@ -47,7 +47,7 @@ def align(s, t):
     align_a = ''
     align_b = ''
     while (i > 0 or k > 0) and prevs[i][k] != -2:
-        print(i, k)
+#        print(i, k)
         if i > 0 and k > 0 and prevs[i][k] == 0:
             align_a = t[i - 1] + align_a
             align_b = s[k - 1] + align_b
@@ -62,22 +62,24 @@ def align(s, t):
             align_b = s[k - 1] + align_b
             k -= 1
 
-    print(align_a)
-    print(align_b)
+#    print(align_a)
+#    print(align_b)
+    return maxj
 
 
-align('GCCCCCCCCAAAACCTT', 'AGCAAAACCTTTTTTTTTT')
+import sys
+sys.stdout = open('myfile.sam', 'w')
 
 with open('/home/xenx/Downloads/small_ref.fa') as f:
     first = True
     ref = ''
     ref_name = ''
-   for line in f:
+    for line in f:
         if first:
             ref_name = line.strip()
             first = False
             continue
-       ref += line.strip()
+        ref += line.strip()
 reads = []
 with open('/home/xenx/Downloads/small.fastq') as f:
     string_mod = 1
