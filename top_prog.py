@@ -8,7 +8,7 @@ with open('/home/xenx/Downloads/norm_camp.tsv') as f:
     all_middle = []
     for line in f:
         if first:
-            types = line.strip().split()[1:]
+            types = line.strip().split()
             border = types.index('case')
             lencase = len(types) - border
             first = False
