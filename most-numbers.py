@@ -1,0 +1,1 @@
+print(max(i) - min(i) for i in [list(map(float, input().split()))])

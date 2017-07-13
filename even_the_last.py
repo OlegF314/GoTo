@@ -1,0 +1,1 @@
+print(list(sum(i[::2]) * i[-1] for i in [list(map(int, input().split()))])[0])

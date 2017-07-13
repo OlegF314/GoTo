@@ -1,0 +1,1 @@
+print(' '.join(map(str, list(([string.count('A'), string.count('C'), string.count('G'), string.count('T')] for string in [input()]))[0])))
